@@ -83,3 +83,81 @@ In schelet se aflat 4 fisiere:
     operations.c - contine implementarea operatiilor
     structs.h - contine structurile ce vor fi folosite in cadrul implementarii
     Makefile - un Makefile clasic. Se poate folosii in urmatoarele moduri: make, make run, make clean
+    
+ Programul va citi comenzi de la tastatura pana la primirea comenzii exit, in urma careia programul va elibera memoria si va iesi.
+
+Comenzile primite vor veni in urmatorul format:
+
+    print <index> - se va afisa senzorul de la pozitia data, avand formatul prezentat in urmatoarea sectiune. Daca indexul primit de la tastatura este negativ sau este mai mare decat dimensiunea vectorului se va afisa mesajul: “Index not in range!”.
+
+    analyze <index> - se vor efectua toate operatii senzorului de pe pozitia data. Daca indexul primit de la tastatura este negativ sau este mai mare decat dimensiunea vectorului se va afisa mesajul: “Index not in range!”.
+
+    clear - se vor sterge toti senzorii care contin valori eronate
+
+    exit - se va elibera memoria si se va iesi din program
+---------------------------------------------------
+1. Print (simple) - 10p
+
+Se va face printarea vectorului de senzori, aplicandu-se urmatorul format:
+
+Pentru Tire Sensor:
+
+Tire Sensor
+Pressure: <pressure>
+Temperature: <temperature>
+Wear Level: <wear_level>
+Performance Score: <computed score>/Performance Score: Not Calculated
+
+Pentru Power Management Unit Sensor:
+
+Power Management Unit
+Voltage: <voltage>
+Current: <current>
+Power Consumption: <power_consumption>
+Energy Regen: <energy_regen>
+Energy Storage: <energy_storage>
+
+Printarea variabilelor de tip float se va face cu o precizie de 2 zecimale.
+
+Aici o sa gasesti un hint pentru tema
+2. Print (complex) - 20p
+
+Se va face printarea vectorului de senzori in acelasi format prezentat mai sus, tinandu-se cont de prioritatile acestora.
+
+It is never enough
+3. Analyze - 20p
+
+Se vor efectua toate operatiile senzorului dat ca argument, in ordine in care au fost date.
+
+Aventura continua
+4. Clear - 20p
+
+Se vor sterge din vector, senzorii care contin valori eronate. Un senzor este considerat invalid daca NU respecta cel putin una din urmatoarele conditii:
+
+Tire Sensor:
+pressure: between 19 and 28 psi
+temperature: between 0°C and 120°C
+wear_level: between 0% and 100%
+
+Power Management Unit Sensor:
+voltage: between 10V and 20V
+current: between -100A and 100A
+power_consumption: between 0kW and 1000kW
+energy_regen: between 0% and 100%
+energy_storage: between 0% and 100%
+
+O sa fie un sezon lung
+5. Exit - 0p
+
+La primirea acestei comenzi memoria este dezalocata si programul se opreste.
+
+Lacrimi si durere
+6. Memory management - 20p
+
+O alta parte foarte importanta a temei este intelegerea si lucrul cu memoria. Pentru asta, acest task va consta din doua parti:
+
+1) Alocarea corecta de memorie: memoria va fi alocata dinamic pentru toate structurile folosite. Alocare corecta insemna ca in urma operatiei de clear nu va mai fi alocata memorie si pentru senzori eliminati si ca vectorul va fi redimensionat.
+
+2) Dezalocarea corecta a memoriei: memoria va fi dezalocata corect si complet. Pentru testare, vom folosi valgrind si ca punct de referinta, programul nu trebuie sa afiseze niciun read invalid sau orice leak de memorie.(erori de REDIR nu o sa fie depunctate).
+
+valgrind –leak-check=full –show-leak-kinds=all –track-origins=yes ./main. Ca sa nu va chinuiti aveti deja la dispozitie o astfel de rulare prin comanda make check. 
