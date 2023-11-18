@@ -1,3 +1,4 @@
+https://ocw.cs.pub.ro/courses/pclp2/teme/tema-1
 Implementare
 
 Implementarea va consta crearea unui vector de tip Sensor* ce va contine doua tipuri de senzori: Tire Sensor si Power Management Unit Sensor (vezi mai jos structurile). O structura de tip Sensor va contine pe langa datele sensorului asociat si un vector cu indicii operatiilor ce vor trebui efectuate pe date sensorului. Sunt un numar total de 8 operatii sub forma de functii care trebuie apelate pe datele sensorului. Implementarea acestora se gaseste in fisierul operations.c din schelet, avand urmatoarele antete:
