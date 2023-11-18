@@ -1,0 +1,15 @@
+==3123== Memcheck, a memory error detector
+==3123== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==3123== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==3123== Command: ./../src/main input/sensors_print_hard_2.dat
+==3123== Parent PID: 3122
+==3123== 
+==3123== 
+==3123== HEAP SUMMARY:
+==3123==     in use at exit: 0 bytes in 0 blocks
+==3123==   total heap usage: 18 allocs, 18 frees, 13,332 bytes allocated
+==3123== 
+==3123== All heap blocks were freed -- no leaks are possible
+==3123== 
+==3123== For lists of detected and suppressed errors, rerun with: -s
+==3123== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
