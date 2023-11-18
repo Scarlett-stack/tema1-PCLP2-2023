@@ -12,9 +12,9 @@ static void pmu_get_energy_usage(void* data);
 static void pmu_is_battery_healthy(void* data);
 ```
 Pentru a usura utilizarea acestora, va punem la dispozitie urmatoarea functie (tot in operations.c) ce va alcatui un vector de operatii:
-
+```
 void get_operations(void** operations)
-
+```
 Fiecare senzor va primi ca input un vector de indecsi ai operatiilor ce vor trebui apelate din vectorul obtinut dupa apelarea functiei de mai sus. Functiile trebuie apelate prin intermediul vectorului, NU aveti voie sa apelati functiile explicit.
 
 Exemplu:
@@ -24,12 +24,12 @@ Pentru un senzor de tipul Tire Sensor se primeste ca input urmatorul vector:
 3 1 0 2
 
 Se vor apela, in ordine, urmatoarele functii:
-
+```
 tire_performance_score();
 tire_temperature_status();
 tire_pressure_status();
 tire_wear_level_status();
-
+```
 Prioritati
 
 Valorile primite de la senzorii de tip Power Management Unit sunt mai importante decat cele primite de la senzorii de tip Tire Sensor. Astfel, vom dorii care senzorii Power Management Unit sa se afle primii in vectorul de senzori.
@@ -47,7 +47,7 @@ PMU_1 PMU_2 PMU_3 PMU_4 Tire_1 Tire_2 Tire_3 Tire_4 Tire_5
 Structuri
 
 Mai jos aveti implementarea structurilor:
-
+```
 enum sensor_type {
 	TIRE,
 	PMU
@@ -74,7 +74,7 @@ typedef struct __attribute__((__packed__)) {
 	int wear_level; 		// interval between 0-100%;. 0% wear means new tire.
 	int performace_score;		// between 1-10; 1 low performance; 10 high performance
 } TireSensor;
-
+```
 Schelet
 
 In schelet se aflat 4 fisiere:
